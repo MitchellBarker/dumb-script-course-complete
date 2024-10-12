@@ -11,24 +11,23 @@ sections = {
     6: ("brc.6", 10),
     7: ("brc.7", 13),
     8: ("brc.8", 26),
-    # tbd
-    9: ("brc.9", 12),
-    10: ("brc.10", 15),
-    11: ("brc.11", 13),
+    9: ("brc.9", 14),
+    10: ("brc.10", 16),
+    11: ("brc.11", 14),
     12: ("brc.12", 1),
     13: ("brc.13", 1),
     14: ("brc.14", 2),
-    15: ("brc.15", 9),
+    15: ("brc.15", 8),
     16: ("hf.1", 10),
-    17: ("hf.2", 7),
+    17: ("hf.2", 12),
     18: ("hf.3", 5),
-    19: ("hf.4", 10),
-    20: ("hf.5", 3)
+    19: ("hf.4", 13),
 }
 
 # Replace with your actual values
-cookie = '' #replace with cookie
+cookie = ''  # Replace with actual cookie
 sesskey = ''     # Replace with actual sesskey
+
 
 # Helper function to generate the correct `cmi__suspend_data`
 def generate_suspend_data(section_number, slide_number):
@@ -90,13 +89,13 @@ def send_request(section_number, slide_number):
     }
     
     # Send the POST request
-    response = requests.post(url, headers=headers, data=data)
+    # response = requests.post(url, headers=headers, data=data)
     
-    # Validate response
-    if 'true' in response.text and '0' in response.text:
-        print(f"Success for slide {slide_number} in section {section_number}: {response.text}")
-    else:
-        raise ValueError(f"Unexpected response for slide {slide_number} in section {section_number}: {response.text}")
+    # # Validate response
+    # if 'true' in response.text and '0' in response.text:
+    #     print(f"Success for slide {slide_number} in section {section_number}: {response.text}")
+    # else:
+    #     raise ValueError(f"Unexpected response for slide {slide_number} in section {section_number}: {response.text}")
 
 # Function to automate through a section
 def complete_section(section_number, start_slide=1, time_delay=0):
